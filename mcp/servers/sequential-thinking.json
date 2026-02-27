@@ -1,0 +1,15 @@
+{
+  "name": "sequential-thinking",
+  "displayName": "Sequential Thinking",
+  "description": "Dynamic and reflective problem-solving through thought sequences. Ideal for complex legal analysis, multi-step research, and agent planning.",
+  "source": "modelcontextprotocol/servers",
+  "package": "@modelcontextprotocol/server-sequential-thinking",
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+  "env": {},
+  "capabilities": ["tools"],
+  "tools": ["sequentialThinking"],
+  "smithery": "https://smithery.ai/server/@modelcontextprotocol/sequentialthinking",
+  "docs": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking"
+}

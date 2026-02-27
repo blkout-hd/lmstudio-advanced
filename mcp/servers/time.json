@@ -1,0 +1,15 @@
+{
+  "name": "time",
+  "displayName": "Time",
+  "description": "Time and timezone conversion capabilities. Useful for legal deadline calculations and cross-jurisdiction timestamp normalization.",
+  "source": "modelcontextprotocol/servers",
+  "package": "@modelcontextprotocol/server-time",
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-time"],
+  "env": {},
+  "capabilities": ["tools"],
+  "tools": ["get_current_time", "convert_time"],
+  "smithery": "https://smithery.ai/server/@modelcontextprotocol/time",
+  "docs": "https://github.com/modelcontextprotocol/servers/tree/main/src/time"
+}

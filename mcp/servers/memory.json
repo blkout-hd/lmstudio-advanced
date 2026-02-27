@@ -1,0 +1,19 @@
+{
+  "name": "memory",
+  "displayName": "Memory (Knowledge Graph)",
+  "description": "Persistent knowledge graph memory. Lets Claude remember entities, observations, and relations across sessions.",
+  "source": "modelcontextprotocol/servers",
+  "package": "@modelcontextprotocol/server-memory",
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-memory"],
+  "env": {},
+  "capabilities": ["tools", "resources"],
+  "tools": [
+    "create_entities", "create_relations", "add_observations",
+    "delete_entities", "delete_observations", "delete_relations",
+    "read_graph", "search_nodes", "open_nodes"
+  ],
+  "smithery": "https://smithery.ai/server/@modelcontextprotocol/memory",
+  "docs": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory"
+}

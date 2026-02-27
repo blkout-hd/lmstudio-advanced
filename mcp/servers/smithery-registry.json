@@ -1,0 +1,17 @@
+{
+  "name": "smithery-registry",
+  "displayName": "Smithery Registry",
+  "description": "Search and connect to thousands of MCP servers in the Smithery registry. Enables dynamic skill and tool discovery.",
+  "source": "smithery-ai",
+  "package": "smithery-registry-mcp",
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["-y", "smithery-registry-mcp"],
+  "env": {
+    "SMITHERY_API_KEY": "${SMITHERY_API_KEY}"
+  },
+  "capabilities": ["tools"],
+  "tools": ["authenticate", "listServers", "getServer", "createConnectionUrl"],
+  "smithery": "https://smithery.ai",
+  "docs": "https://github.com/aloshy-ai/smithery-registry-mcp"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "brave-search",
+  "displayName": "Brave Search",
+  "description": "Web search via Brave Search API. Primary backend for WebResearchTool in the research package.",
+  "source": "smithery-ai",
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+  "env": {
+    "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+  },
+  "capabilities": ["tools"],
+  "tools": ["brave_web_search", "brave_local_search"],
+  "smithery": "https://smithery.ai/server/@modelcontextprotocol/brave-search",
+  "docs": "https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "filesystem",
+  "displayName": "Filesystem",
+  "description": "Secure file operations with configurable access controls. Used for reading contracts, writing analysis outputs, and managing model files.",
+  "source": "modelcontextprotocol/servers",
+  "package": "@modelcontextprotocol/server-filesystem",
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-filesystem", "${WORKSPACE_ROOT}"],
+  "env": {
+    "WORKSPACE_ROOT": "."
+  },
+  "capabilities": ["tools"],
+  "tools": ["read_file", "write_file", "list_directory", "search_files", "get_file_info"],
+  "smithery": "https://smithery.ai/server/@modelcontextprotocol/filesystem",
+  "docs": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem"
+}

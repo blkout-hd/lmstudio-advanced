@@ -1,0 +1,16 @@
+{
+  "name": "github",
+  "displayName": "GitHub",
+  "description": "GitHub API operations: repo management, PR review, issue triage, code search, and release automation.",
+  "source": "modelcontextprotocol/servers",
+  "package": "@modelcontextprotocol/server-github",
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-github"],
+  "env": {
+    "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PAT}"
+  },
+  "capabilities": ["tools"],
+  "smithery": "https://smithery.ai/server/@modelcontextprotocol/github",
+  "docs": "https://github.com/modelcontextprotocol/servers/tree/main/src/github"
+}

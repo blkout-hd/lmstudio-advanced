@@ -1,0 +1,18 @@
+{
+  "type": "plugin",
+  "name": "model-router",
+  "version": "0.1.0",
+  "description": "Intelligent model router. Routes tasks between local LM Studio models and cloud OSS endpoints based on task complexity and VRAM availability.",
+  "runner": "node",
+  "sandbox": {
+    "enabled": true,
+    "network": {
+      "hosts": ["localhost", "127.0.0.1", "api.openai.com", "api.anthropic.com"],
+      "reason": "Routes to local LM Studio and optional cloud endpoints (OpenAI-compatible, Anthropic)."
+    },
+    "fileSystem": {
+      "type": "restricted",
+      "reason": "Read-only access to model profile configs in models/profiles/."
+    }
+  }
+}

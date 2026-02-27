@@ -1,0 +1,15 @@
+{
+  "name": "fetch",
+  "displayName": "Fetch",
+  "description": "Web content fetching and conversion for efficient LLM context. Backs WebResearchTool and AcademicSearchTool connectors.",
+  "source": "modelcontextprotocol/servers",
+  "package": "@modelcontextprotocol/server-fetch",
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-fetch"],
+  "env": {},
+  "capabilities": ["tools"],
+  "tools": ["fetch"],
+  "smithery": "https://smithery.ai/server/@modelcontextprotocol/fetch",
+  "docs": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch"
+}

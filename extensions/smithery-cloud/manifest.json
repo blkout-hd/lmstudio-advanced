@@ -1,0 +1,21 @@
+{
+  "type": "plugin",
+  "name": "smithery-cloud",
+  "version": "0.1.0",
+  "description": "Smithery cloud gateway connector. Enables LM Studio agents to discover and call MCP servers from the Smithery registry without local installation.",
+  "runner": "mcpBridge",
+  "sandbox": {
+    "enabled": true,
+    "network": {
+      "hosts": ["api.smithery.ai", "smithery.ai", "registry.smithery.ai"],
+      "reason": "Requires access to Smithery API for MCP server registry lookups and WebSocket connections."
+    },
+    "fileSystem": {
+      "type": "restricted",
+      "reason": "Write access restricted to local Smithery connection cache."
+    }
+  },
+  "env": {
+    "SMITHERY_API_KEY": "${SMITHERY_API_KEY}"
+  }
+}

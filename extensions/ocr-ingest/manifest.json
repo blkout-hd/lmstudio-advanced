@@ -1,0 +1,18 @@
+{
+  "type": "plugin",
+  "name": "ocr-ingest",
+  "version": "0.1.0",
+  "description": "GLM-OCR + Qwen3-VL-2B document ingestion extension. Converts PDFs and scanned images to structured text.",
+  "runner": "node",
+  "sandbox": {
+    "enabled": true,
+    "network": {
+      "hosts": ["localhost", "127.0.0.1"],
+      "reason": "Calls local LM Studio endpoints for GLM-OCR and Qwen3-VL inference only."
+    },
+    "fileSystem": {
+      "type": "readWrite",
+      "reason": "Needs read access to document upload directory and write access to OCR output cache."
+    }
+  }
+}

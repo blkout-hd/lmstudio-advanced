@@ -1,0 +1,15 @@
+{
+  "name": "git",
+  "displayName": "Git",
+  "description": "Read, search, and manipulate Git repositories. Used for repo auditing, changelog generation, and upstream sync workflows.",
+  "source": "modelcontextprotocol/servers",
+  "package": "@modelcontextprotocol/server-git",
+  "transport": "stdio",
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-git", "--repository", "."],
+  "env": {},
+  "capabilities": ["tools"],
+  "tools": ["git_log", "git_diff", "git_status", "git_show", "git_blame", "git_branch"],
+  "smithery": "https://smithery.ai/server/@modelcontextprotocol/git",
+  "docs": "https://github.com/modelcontextprotocol/servers/tree/main/src/git"
+}
