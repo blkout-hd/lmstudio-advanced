@@ -1,0 +1,13 @@
+{
+  "name": "research-heavy",
+  "description": "Extended context for long document research and synthesis.",
+  "config": {
+    "contextLength": 32768,
+    "maxParallelPredictions": 2,
+    "useUnifiedKvCache": true,
+    "flashAttention": true,
+    "offloadKVCacheToGpu": true,
+    "evalBatchSize": 512,
+    "gpu": { "ratio": "max" }
+  }
+}

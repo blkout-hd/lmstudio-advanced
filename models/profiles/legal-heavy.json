@@ -1,0 +1,14 @@
+{
+  "name": "legal-heavy",
+  "description": "Long context for multi-document contract and case analysis. Tuned for Qwen3-VL-2B and similar 2B-class models.",
+  "config": {
+    "contextLength": 65536,
+    "maxParallelPredictions": 1,
+    "useUnifiedKvCache": true,
+    "flashAttention": true,
+    "offloadKVCacheToGpu": true,
+    "gpuStrictVramCap": true,
+    "evalBatchSize": 256,
+    "gpu": { "ratio": "max" }
+  }
+}

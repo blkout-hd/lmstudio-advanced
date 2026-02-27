@@ -1,0 +1,18 @@
+{
+  "type": "plugin",
+  "name": "academic-search",
+  "version": "0.1.0",
+  "description": "Sandboxed academic search connector (arXiv, Semantic Scholar, CrossRef).",
+  "runner": "deno",
+  "sandbox": {
+    "enabled": true,
+    "network": {
+      "hosts": ["export.arxiv.org", "api.semanticscholar.org", "api.crossref.org"],
+      "reason": "Requires access to academic database APIs only."
+    },
+    "fileSystem": {
+      "type": "restricted",
+      "reason": "Write access restricted to local paper cache directory."
+    }
+  }
+}

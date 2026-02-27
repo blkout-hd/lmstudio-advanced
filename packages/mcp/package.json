@@ -1,0 +1,23 @@
+{
+  "name": "@lmstudio-advanced/mcp",
+  "version": "0.1.0",
+  "description": "MCP client and bridge adapters for LM Studio",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+  },
+  "dependencies": {
+    "@lmstudio-advanced/shared-types": "*",
+    "ws": "^8.18.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.5.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0"
+  }
+}

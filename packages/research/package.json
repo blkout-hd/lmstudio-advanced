@@ -1,0 +1,16 @@
+{
+  "name": "@lmstudio-advanced/research",
+  "version": "0.1.0",
+  "description": "Web and academic research connectors for LM Studio",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "typecheck": "tsc --project tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@lmstudio-advanced/shared-types": "*",
+    "zod": "^3.22.0"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "modelId": "Qwen/Qwen3-VL-2B-Instruct",
+  "displayName": "Qwen3-VL-2B-Instruct",
+  "type": "vlm",
+  "capabilities": ["chat", "vision", "ocr", "document-understanding"],
+  "notes": "2B multimodal model with strong OCR and layout-aware document understanding. Ideal for scanned contracts and regulatory PDFs. Fits in 4-8GB VRAM when quantized (Q4_K_M recommended).",
+  "recommendedProfile": "legal-heavy",
+  "loadConfig": {
+    "contextLength": 32768,
+    "flashAttention": true,
+    "offloadKVCacheToGpu": true,
+    "gpuStrictVramCap": true,
+    "gpu": { "ratio": "max" }
+  }
+}

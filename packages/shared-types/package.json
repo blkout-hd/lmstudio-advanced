@@ -1,0 +1,15 @@
+{
+  "name": "@lmstudio-advanced/shared-types",
+  "version": "0.1.0",
+  "description": "Shared TypeScript types for lmstudio-advanced packages",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "typecheck": "tsc --project tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "zod": "^3.22.0"
+  }
+}

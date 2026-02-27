@@ -1,0 +1,18 @@
+{
+  "type": "plugin",
+  "name": "mcp-bridge",
+  "version": "0.1.0",
+  "description": "MCP bridge plugin — connects LM Studio agent tools to external MCP servers.",
+  "runner": "mcpBridge",
+  "sandbox": {
+    "enabled": true,
+    "network": {
+      "hosts": ["localhost", "127.0.0.1"],
+      "reason": "Needs access to local MCP server endpoints only. Remote MCP endpoints must be explicitly added."
+    },
+    "fileSystem": {
+      "type": "restricted",
+      "reason": "Write access restricted to plugin-local storage for MCP state caching."
+    }
+  }
+}

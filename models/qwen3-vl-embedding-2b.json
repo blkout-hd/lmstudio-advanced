@@ -1,0 +1,14 @@
+{
+  "modelId": "Qwen/Qwen3-VL-Embedding-2B",
+  "displayName": "Qwen3-VL-Embedding-2B",
+  "type": "embedding",
+  "capabilities": ["text-embedding", "image-embedding", "multimodal-retrieval"],
+  "notes": "2B multimodal embedding model. Generates 64-2048 dim vectors for text and document images. Powers unified retrieval over contracts, case law, and scanned exhibits. Available via Ollama: MedAIBase/Qwen3-VL-Embedding:2b.",
+  "embeddingDimensions": [64, 128, 256, 512, 1024, 2048],
+  "recommendedDimension": 1024,
+  "loadConfig": {
+    "contextLength": 8192,
+    "flashAttention": true,
+    "gpu": { "ratio": "max" }
+  }
+}

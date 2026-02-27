@@ -1,0 +1,12 @@
+{
+  "modelId": "zai-org/GLM-OCR",
+  "displayName": "GLM-OCR",
+  "type": "ocr",
+  "capabilities": ["ocr", "table-extraction", "formula-parsing", "document-understanding"],
+  "notes": "0.9B OCR model achieving SOTA on complex document understanding. Extracts text, tables, and formulas from PDFs and scanned images. Very low VRAM footprint — runs alongside other models. API available via Z.AI: docs.z.ai/guides/vlm/glm-ocr.",
+  "parameterCount": "0.9B",
+  "loadConfig": {
+    "contextLength": 8192,
+    "gpu": { "ratio": 0.5 }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "interactive",
+  "description": "Low latency, single user. Best for chat and quick completions.",
+  "config": {
+    "contextLength": 8192,
+    "maxParallelPredictions": 1,
+    "flashAttention": true,
+    "gpuStrictVramCap": true,
+    "gpu": { "ratio": "max" }
+  }
+}

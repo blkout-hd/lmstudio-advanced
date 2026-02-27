@@ -1,0 +1,18 @@
+{
+  "type": "plugin",
+  "name": "legal-nlp",
+  "version": "0.1.0",
+  "description": "Legal NLP plugin — LEGAL-BERT inference, HF contract classifiers, GLM-OCR ingest.",
+  "runner": "node",
+  "sandbox": {
+    "enabled": true,
+    "network": {
+      "hosts": ["api-inference.huggingface.co", "docs.z.ai", "localhost"],
+      "reason": "Requires access to HuggingFace inference API and local GLM-OCR endpoint."
+    },
+    "fileSystem": {
+      "type": "restricted",
+      "reason": "Needs read access to user document directory and write to legal analysis cache."
+    }
+  }
+}

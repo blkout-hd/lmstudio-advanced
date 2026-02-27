@@ -1,0 +1,17 @@
+{
+  "name": "@lmstudio-advanced/legal",
+  "version": "0.1.0",
+  "description": "Legal AI workflows — GLM-OCR, Qwen3-VL, HuggingFace legal NLP, clause analysis",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "typecheck": "tsc --project tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@lmstudio-advanced/shared-types": "*",
+    "@lmstudio/sdk": "^0.3.0",
+    "zod": "^3.22.0"
+  }
+}

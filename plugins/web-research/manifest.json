@@ -1,0 +1,18 @@
+{
+  "type": "plugin",
+  "name": "web-research",
+  "version": "0.1.0",
+  "description": "Sandboxed web research connector for LM Studio agents.",
+  "runner": "deno",
+  "sandbox": {
+    "enabled": true,
+    "network": {
+      "hosts": ["api.search.brave.com", "serpapi.com", "searxng.local"],
+      "reason": "Requires access to whitelisted search engine APIs only."
+    },
+    "fileSystem": {
+      "type": "restricted",
+      "reason": "Write access restricted to local search result cache directory."
+    }
+  }
+}
