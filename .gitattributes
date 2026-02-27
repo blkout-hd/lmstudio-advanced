@@ -1,0 +1,55 @@
+# ─────────────────────────────────────────────────────────
+# .gitattributes — lmstudio-advanced
+# Enforce LF line endings, mark sensitive path patterns,
+# and flag binary assets.
+# ─────────────────────────────────────────────────────────
+
+* text=auto eol=lf
+
+# TypeScript / JavaScript
+*.ts   text eol=lf
+*.tsx  text eol=lf
+*.js   text eol=lf
+*.jsx  text eol=lf
+*.mjs  text eol=lf
+*.cjs  text eol=lf
+*.json text eol=lf
+
+# Python
+*.py   text eol=lf
+*.toml text eol=lf
+*.cfg  text eol=lf
+*.ini  text eol=lf
+
+# Docs
+*.md   text eol=lf
+*.rst  text eol=lf
+
+# Shell
+*.sh   text eol=lf
+*.bash text eol=lf
+
+# Binary — never diff/merge
+*.gguf    binary
+*.ggml    binary
+*.bin     binary
+*.pt      binary
+*.pth     binary
+*.ckpt    binary
+*.safetensors binary
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.ico     binary
+*.pdf     binary
+*.zip     binary
+*.tar.gz  binary
+*.whl     binary
+
+# Secrets — never export in archives
+secrets/**    export-ignore
+.env*         export-ignore
+private/**    export-ignore
+.sbscrpt/**   export-ignore
+.magi/**      export-ignore

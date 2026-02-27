@@ -1,0 +1,84 @@
+# ─────────────────────────────────────────────────────────
+# .pre-commit-config.yaml — lmstudio-advanced
+#
+# Hooks:
+#   1. Standard hygiene (trailing whitespace, YAML, TOML)
+#   2. Gitleaks — secret/credential scanning
+#   3. Custom: log file detector
+#   4. Custom: PII detector
+#   5. Custom: proprietary IP guard (SBSCRPT/MAGI)
+#   6. Detect private-branch content leaking to public
+#
+# Install:  pip install pre-commit && pre-commit install
+#           pre-commit install --hook-type commit-msg
+# ─────────────────────────────────────────────────────────
+
+repos:
+  # ── Standard hygiene ──────────────────────────────────
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+      - id: detect-private-key
+      - id: check-symlinks
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+
+  # ── Gitleaks: secrets & credentials ──────────────────
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+        name: "[GUARD] Gitleaks — detect secrets/credentials"
+
+  # ── Custom local guards ───────────────────────────────
+  - repo: local
+    hooks:
+
+      # --- Log file guard ---
+      - id: block-log-files
+        name: "[GUARD] Block log files"
+        language: script
+        entry: .hooks/guard_logs.sh
+        types: [text]
+        pass_filenames: true
+
+      # --- PII guard ---
+      - id: block-pii
+        name: "[GUARD] Block PII (email, SSN, phone, IP, passport)"
+        language: script
+        entry: .hooks/guard_pii.sh
+        types: [text]
+        pass_filenames: true
+
+      # --- Proprietary IP guard ---
+      - id: block-proprietary-ip
+        name: "[GUARD] Block SBSCRPT/MAGI proprietary IP"
+        language: script
+        entry: .hooks/guard_proprietary.sh
+        types: [text]
+        pass_filenames: true
+
+      # --- Private branch leak guard ---
+      - id: block-private-branch-leak
+        name: "[GUARD] Prevent private/ branch content on public branches"
+        language: script
+        entry: .hooks/guard_branch.sh
+        pass_filenames: false
+        always_run: true
+
+      # --- Autonomous commit classifier (Python) ---
+      - id: autonomous-commit-guard
+        name: "[GUARD] Autonomous risk classifier"
+        language: python
+        entry: .hooks/autonomous_guard.py
+        additional_dependencies: ["re", "pathlib"]
+        pass_filenames: true
+        types: [text]

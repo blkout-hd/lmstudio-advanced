@@ -1,0 +1,79 @@
+# ─────────────────────────────────────────────────────────
+# ci-security-scan.yml — GitHub Actions security workflow
+#
+# Runs on every push and PR to public branches.
+# Enforces the same guards as pre-commit hooks server-side
+# so that bypassed local hooks are caught in CI.
+# ─────────────────────────────────────────────────────────
+name: Security Scan
+
+on:
+  push:
+    branches:
+      - main
+      - feat/**
+      - develop
+      - release/**
+  pull_request:
+    branches:
+      - main
+      - feat/**
+      - develop
+      - release/**
+
+jobs:
+  gitleaks:
+    name: Gitleaks — Secret Detection
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  pii-and-ip-scan:
+    name: Autonomous Guard — PII, Logs, Proprietary IP
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pre-commit
+        run: pip install pre-commit
+
+      - name: Make hook scripts executable
+        run: chmod +x .hooks/*.sh .hooks/*.py
+
+      - name: Run autonomous guard on all changed files
+        run: |
+          git diff --name-only HEAD~1 HEAD -- | xargs -r python .hooks/autonomous_guard.py
+
+      - name: Run log guard
+        run: |
+          git diff --name-only HEAD~1 HEAD -- | xargs -r bash .hooks/guard_logs.sh || true
+
+      - name: Run PII guard
+        run: |
+          git diff --name-only HEAD~1 HEAD -- | xargs -r bash .hooks/guard_pii.sh
+
+      - name: Run proprietary IP guard
+        run: |
+          git diff --name-only HEAD~1 HEAD -- | xargs -r bash .hooks/guard_proprietary.sh
+
+  pre-commit-check:
+    name: pre-commit hooks check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.1

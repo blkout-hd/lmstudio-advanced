@@ -1,0 +1,21 @@
+# CODEOWNERS — lmstudio-advanced
+# Require review from repo owner for sensitive paths.
+
+# Default owner for everything
+* @blkout-hd
+
+# Security-critical paths always require owner review
+.hooks/**              @blkout-hd
+.pre-commit-config.yaml @blkout-hd
+.github/workflows/**   @blkout-hd
+.gitignore             @blkout-hd
+.gitattributes         @blkout-hd
+
+# Legal and model work
+packages/legal/**      @blkout-hd
+models/**              @blkout-hd
+plugins/legal-nlp/**   @blkout-hd
+
+# MCP connectors
+packages/mcp/**        @blkout-hd
+plugins/mcp-bridge/**  @blkout-hd

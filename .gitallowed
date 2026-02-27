@@ -1,0 +1,9 @@
+# ─────────────────────────────────────────────────────────
+# .gitallowed — explicit allowlist for pre-commit scanner
+# Files listed here are permitted to contain patterns
+# that would otherwise be flagged (e.g. example .env files,
+# test fixtures with dummy secrets).
+# ─────────────────────────────────────────────────────────
+.env.example
+tests/fixtures/dummy_token.txt
+tests/fixtures/fake_pii.json

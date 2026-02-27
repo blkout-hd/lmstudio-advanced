@@ -1,0 +1,127 @@
+# ─────────────────────────────────────────────
+# lmstudio-advanced .gitignore
+# Prevents logs, PII, secrets, and proprietary
+# SBSCRPT/MAGI IP from reaching public branches
+# ─────────────────────────────────────────────
+
+# Node / npm
+node_modules/
+dist/
+build/
+.cache/
+.npm/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.pdm-build/
+.tox/
+*.whl
+
+# Logs — NEVER commit
+*.log
+*.logs
+logs/
+.logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lm-studio-*.log
+agent-*.log
+research-*.log
+legal-*.log
+
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.cert
+*.cer
+*.crt
+secrets/
+credentials/
+.secrets/
+auth_tokens.json
+api_keys.json
+service_account*.json
+
+# PII and sensitive data
+pii/
+*.pii
+datasets/private/
+datasets/pii/
+uploads/
+scan_cache/
+ocr_cache/
+legal_cache/
+vector_store/private/
+embeddings/private/
+
+# Proprietary SBSCRPT/MAGI IP
+private/
+.sbscrpt/
+.magi/
+sbscrpt_core/
+magi_core/
+eigen_weights/
+dcv_manifolds/
+omega_tickers/
+uecs/
+upla/
+qcc/
+
+# Model weights and large binaries
+*.gguf
+*.ggml
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+model_weights/
+checkpoints/
+
+# LM Studio workspace
+.lmstudio/
+lmstudio_workspace/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+.Spotlight-V100
+.Trashes
+
+# IDE
+.idea/
+.vscode/settings.json
+.vscode/launch.json
+*.suo
+*.user
+
+# Coverage and test artifacts
+coverage/
+.nyc_output/
+htmlcov/
+.coverage
+junit*.xml
+
+# Temporary
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
