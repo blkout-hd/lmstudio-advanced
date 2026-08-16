@@ -1,3 +1,5 @@
+
+
 # lmstudio-advanced
 
 > Unified LM Studio extensions — advanced web & academic research, legal AI workflows, MCP connectors, and improved SDK handling.
@@ -87,6 +89,8 @@ lmstudio-advanced/
 ---
 
 ## Quick Start
+
+Requires Node.js >=18 and npm >=9.
 
 ```bash
 # Clone
